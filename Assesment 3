@@ -1,0 +1,55 @@
+class Member():
+    def __init__(self,name):
+        self.name = name 
+        self.id = id
+        self.registeredstudents = 400
+        self.withdrwanstudents = 600
+        self.active = True
+    def id(self):
+        self.id+=1
+        return self.id
+    def withdraw(self):
+        if self.active:
+            self.registeredstudents-=1
+            self.withdrwanstudents+=1
+            print(f"Registered students ={self.registeredstudents} ")
+            print(f"Withdrwan students = {self.withdrwanstudents} ")
+        else:
+            print("Invalid choices")
+    def program(self,stream):
+        if stream == "Bachelor of IT":
+            print("Student Program is Bachelor of IT.")
+        else:
+            print("Student program is Bachelor")
+
+    def display(self):
+        print(f"LAST NAME: {self.name}")
+        print(f"Member ship ID: {self.id}")
+        print(f"Registered students: {self.registeredstudents}")
+        print(f"Withdrwan students:{self.withdrwanstudents}")
+info = Member("singh")
+info.id(400)
+info.withdraw()
+info.display()
+
+
+
+
+Principles Explained
+Single Responsibility Principle (SRP):
+
+Each class should have one reason to change. In the original code, the id method was confusingly named, as it both provided a unique ID and was an attribute of the member. By separating the generate_id method, we clarify that the ID generation is a distinct responsibility.
+Encapsulation:
+
+By changing id to _id_counter, we indicate that this attribute is intended for internal use only. This helps prevent unintended access or modification from outside the class, promoting safer and more robust code.
+DRY (Don't Repeat Yourself):
+
+The code now avoids redundancy. For example, if we needed to change how we generate or handle IDs, we would only need to modify the generate_id method rather than updating multiple places.
+Naming Conventions:
+
+Using clearer and more descriptive names (e.g., withdrawn_students instead of withdrwanstudents) improves code readability. Consistent naming conventions also help maintain the code more easily.
+Additional Suggestions
+Error Handling: You might consider adding error handling to the withdraw method to manage cases where students can't be withdrawn due to a lack of registered students.
+Testing: Implementing unit tests would further ensure that each method works as intended and facilitates future changes.
+Documentation: Adding docstrings to the methods could improve understanding for future developers (or yourself) when revisiting the code later.
+These principles contribute to more maintainable, readable, and robust software.
