@@ -20,7 +20,7 @@ class Member():
         if stream == "Bachelor of IT":
             print("Student Program is Bachelor of IT.")
         else:
-            print("Student program is Bachelor")
+            print("Student program is Diploma")
 
     def display(self):
         print(f"LAST NAME: {self.name}")
