@@ -27,9 +27,9 @@ class MembershipSystem:
             self.students[student.student_id] = student
             self.next_membership_id += 1
             self.registered_count += 1
-            if student.programme == "Diploma":
+            if student.programme == "Bachelor of IT":
                 self.diploma_count += 1
-            elif student.programme == "Bachelor of IT":
+            elif student.programme == "Diploma":
                 self.it_count += 1
             print(f"Student {student.last_name} registered successfully with Membership ID: {student.membership_id}")
         else:
@@ -41,9 +41,9 @@ class MembershipSystem:
                 student.withdrawn()
                 self.registered_count -= 1
                 self.withdrawn_count += 1
-                if student.programme == "Diploma":
+                if student.programme == "Bachelor of IT":
                     self.diploma_count -= 1
-                elif student.programme == "Bachelor of IT":
+                elif student.programme == "Diploma":
                     self.it_count -= 1
                 print(f"Student with Membership ID {membership_id} withdrawn successfully.")
                 return
@@ -52,8 +52,8 @@ class MembershipSystem:
     def display_registered_members(self):
         print("\nRegistered Members:")
         print(f"Total Registered Members: {self.registered_count}")
-        print(f"Diploma Students: {self.diploma_count}")
         print(f"Bachelor of IT Students: {self.it_count}")
+        print(f"Diploma Students: {self.diploma_count}")
         print(f"Withdrawn Students: {self.withdrawn_count}")
  
 if __name__ == "__main__":
@@ -69,9 +69,9 @@ if __name__ == "__main__":
         if choice == '1':
             student_id = input("Enter student ID: ")
             last_name = input("Enter last name: ")
-            programme = input("Enter programme (Diploma or Bachelor of IT): ")
-            if programme not in ["Diploma", "Bachelor of IT"]:
-                print("Invalid programme. Please enter 'Diploma' or 'Bachelor of IT'.")
+            programme = input("Enter programme (Bachelor of IT or Diploma): ")
+            if programme not in ["Bachelor of IT", "Diploma"]:
+                print("Invalid programme. Please enter 'Bachelor of IT' or 'Diploma'.")
                 continue
             student = Student(student_id, last_name, programme)
             system.register_student(student)
@@ -93,4 +93,7 @@ if __name__ == "__main__":
             print("Invalid choice. Please enter a number between 1 and 4.")
  
 
+
+)
+ 
 
